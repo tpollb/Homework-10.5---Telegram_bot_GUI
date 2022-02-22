@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework 10.5 - Telegram_bot_GUI", "Homework 10.5 - Telegram_bot_GUI\Homework 10.5 - Telegram_bot_GUI.csproj", "{3EEF4A1E-5A7C-4A24-A7FE-A849375E782A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EEF4A1E-5A7C-4A24-A7FE-A849375E782A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EEF4A1E-5A7C-4A24-A7FE-A849375E782A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EEF4A1E-5A7C-4A24-A7FE-A849375E782A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EEF4A1E-5A7C-4A24-A7FE-A849375E782A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CECEAA4A-6811-44E2-B64C-34E0CE61C254}
+	EndGlobalSection
+EndGlobal
