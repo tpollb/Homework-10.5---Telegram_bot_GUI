@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-
-
+using System.Windows.Shapes;
 
 namespace Homework_10._5___Telegram_bot_GUI
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Bot_Id_Window.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Bot_Id_Window : Window
     {
-        public MainWindow()
+        public Bot_Id_Window()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Bot_Id_Window window = new Bot_Id_Window();
-            window.Show();  
         }
     }
 }
