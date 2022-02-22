@@ -5,7 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Homework_10._5___Telegram_bot_GUI"
         mc:Ignorable="d"
-        Title="Bot_Id_Window" Height="200" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Bot_Id_Window" Height="200" Width="400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignLightBackground}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignBodyLight}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        >
+        
+
     <Grid Margin="0,0,10,15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="238*"/>

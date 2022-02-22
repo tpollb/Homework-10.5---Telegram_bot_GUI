@@ -29,7 +29,9 @@ namespace Homework_10._5___Telegram_bot_GUI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Bot_Id_Window window = new Bot_Id_Window();
+            MainWindow window1 = new MainWindow();
             window.Show();  
+            window1.Show();
         }
     }
 }

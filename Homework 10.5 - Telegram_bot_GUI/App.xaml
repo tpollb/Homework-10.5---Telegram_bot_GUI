@@ -4,7 +4,9 @@
              xmlns:local="clr-namespace:Homework_10._5___Telegram_bot_GUI"
              xmlns:materialDesign="https://materialdesigninxaml.net/winfx/xaml/themes"
              StartupUri="MainWindow.xaml">
+
     <Application.Resources>
+        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
