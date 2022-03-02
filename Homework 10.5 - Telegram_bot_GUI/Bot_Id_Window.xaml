@@ -14,15 +14,15 @@
         Background="{DynamicResource MaterialDesignBodyLight}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         >
-        
+
 
     <Grid Margin="0,0,10,15">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="238*"/>
             <ColumnDefinition Width="131*"/>
         </Grid.ColumnDefinitions>
-        <TextBox HorizontalAlignment="Left" Margin="19,56,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="371" Grid.ColumnSpan="2"/>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="162,111,0,0"/>
+        <TextBox x:Name="TextBoxId" HorizontalAlignment="Left" Margin="19,56,0,0" TextWrapping="Wrap" Text="Enter telegram bot ID here" VerticalAlignment="Top" Width="371" Grid.ColumnSpan="2" Cursor="IBeam" Style="{DynamicResource MaterialDesignComboBoxEditableTextBox}"/>
+        <Button Content="Write bot id" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="148,112,0,0" Grid.ColumnSpan="2" Width="112" Cursor="Hand" Click="Button_Click"/>
 
     </Grid>
 </Window>
