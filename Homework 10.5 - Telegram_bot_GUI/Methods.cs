@@ -10,11 +10,15 @@ using System.Net;
 using System.Xml.Linq;
 using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Threading;
+using System.Threading.Tasks;
 
 namespace Homework_10._5___Telegram_bot_GUI
 {
     public class Methods
     {
+        public static ListBox LS;
+        public static Button but1;
         public static List<string> GetExchangeRates()
         {
             
@@ -56,6 +60,16 @@ namespace Homework_10._5___Telegram_bot_GUI
             {
 
                 //MessageBox.Show($"$Пришло сообщение с текстом: { msg.Text} от { msg.Chat.FirstName} { msg.Chat.LastName}");
+
+                await Task.Run(() =>
+                {
+                        
+                        but1.Dispatcher.Invoke((Action)(() =>
+                        {
+                            LS.Items.Add($"Пришло сообщение: {msg.Text} от {msg.Chat.FirstName} {msg.Chat.LastName}");
+                        }));
+                        Thread.Sleep(1000);
+                });
 
 
                 Globals.Currencylist1 = GetExchangeRates();

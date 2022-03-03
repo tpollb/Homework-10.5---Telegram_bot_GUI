@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-
+using System.Windows.Controls;
 
 namespace Homework_10._5___Telegram_bot_GUI
 {
@@ -9,18 +9,18 @@ namespace Homework_10._5___Telegram_bot_GUI
     /// </summary>
     public partial class Bot_Id_Window : Window
     {
+        public Button but1;
         public Bot_Id_Window()
         {
             InitializeComponent();
         }
 
         [Obsolete]
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void Button_Click(object sender, RoutedEventArgs e)
         {
             Globals.Token = TextBoxId.Text;
-            this.Close();   
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Visibility = Visibility.Visible;
+            this.Close();
+            but1.IsEnabled = true;
         }
     }
 }

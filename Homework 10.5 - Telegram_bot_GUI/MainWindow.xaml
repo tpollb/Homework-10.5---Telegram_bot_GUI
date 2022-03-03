@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         x:Class="Homework_10._5___Telegram_bot_GUI.MainWindow"
         mc:Ignorable="d"
-        Title="Telegram Bot GUI" Height="267" Width="491"
+        Title="Telegram Bot GUI" Height="267" Width="500"
         
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,13 +13,30 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignBodyLight}"
-        FontFamily="{DynamicResource MaterialDesignFont}" Visibility="Hidden" 
+        FontFamily="{DynamicResource MaterialDesignFont}" Visibility="Visible" ResizeMode="CanMinimize" 
         >
 
     <Grid>
-        <Button x:Name="StartBotButton" Content="Start bot" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Click="StartBotButton_Click" Margin="389,16,0,0"/>
-        <Button x:Name="StopBotButton" Content="Stop bot" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Click="StopBotButtonButton_Click" Margin="389,53,0,0" IsEnabled="False"/>
-        <ListBox x:FieldModifier="public" x:Name="MsgListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Foreground="White" Margin="246,-3,115,3" AutomationProperties.Name="MsgListBox"/>
+        <Button x:Name="StartBotButton" Content="Start bot" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Click="StartBotButton_Click" Margin="388,63,0,0" Width="102" IsEnabled="False"/>
+        <Button x:Name="StopBotButton" Content="Stop bot" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Click="StopBotButtonButton_Click" Margin="388,107,0,0" IsEnabled="False" Width="102"/>
+        <ListBox x:FieldModifier="public" x:Name="MsgListBox" FontFamily="Times New Roman" FontSize="14"
+                 FontStyle="Normal" Foreground="AntiqueWhite"
+         ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,125,0">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Button x:Name="Bot_Id_Button" Content="Bot Id" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Click="Bot_Id_Button_Click" Margin="388,16,0,0" Width="102"/>
     </Grid>
 
 </Window>
