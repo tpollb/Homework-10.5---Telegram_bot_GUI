@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using Telegram.Bot;
 
 namespace Homework_10._5___Telegram_bot_GUI
@@ -22,5 +23,7 @@ namespace Homework_10._5___Telegram_bot_GUI
         public const string menuItem2 = "Получить json файл курсов";
         public const string menuItem3 = "кнопка";
         public const string menuItem4 = "кнопка";
+
+        //public ObservableCollection<MessageLog> BotMessageLog { get; set; };
     }
 }

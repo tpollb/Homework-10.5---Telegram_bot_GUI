@@ -2,27 +2,34 @@
 using System.Collections.Generic;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types.ReplyMarkups;
-using HtmlAgilityPack;
 using System.Threading;
 using Newtonsoft.Json;
 using System.IO;
-using Aspose.Cells;
+using System.Windows;
+using System.Net;
+using System.Xml.Linq;
+using System.Linq;
+using System.Windows.Controls;
 
 namespace Homework_10._5___Telegram_bot_GUI
 {
-    internal class Methods
+    public class Methods
     {
         public static List<string> GetExchangeRates()
         {
-            const string StartPageLink = @"https://www.cbr.ru/currency_base/daily/";
+            
             var res = new List<string>();
-            var htmlDoc = new HtmlWeb().Load(StartPageLink);
-            var rows = htmlDoc.DocumentNode.SelectNodes("//table[@class='data']//tr");
 
-            foreach (var cell in rows)
-            {
-                res.Add(cell.InnerText);
-            }
+            WebClient client = new WebClient();
+            var xml = client.DownloadString("https://www.cbr-xml-daily.ru/daily.xml");
+            XDocument xdoc = XDocument.Parse(xml);
+            var el = xdoc.Element("ValCurs").Elements("Valute");
+            string dollar = el.Where(x => x.Attribute("ID").Value == "R01235").Select(x => x.Element("Value").Value).FirstOrDefault();
+            string eur = el.Where(x => x.Attribute("ID").Value == "R01239").Select(x => x.Element("Value").Value).FirstOrDefault();
+            
+            res.Add(dollar);
+            res.Add(eur);
+
             return res;
         }
 
@@ -41,37 +48,17 @@ namespace Homework_10._5___Telegram_bot_GUI
             Console.WriteLine($"Файл {filepath} создан");
         }
 
-        public static void GetHtmlFromJsonFile(string filepath)
-        {
-            Workbook wb = new Workbook(filepath);
-            Worksheet ws = wb.Worksheets[0];
-
-            Console.WriteLine(ws);
-        }
-
         [Obsolete]
         public static async void OnMessageHandler(object sender, MessageEventArgs e)
         {
             var msg = e.Message;
             if (msg.Text != null)
             {
-                Console.WriteLine($"Пришло сообщение с текстом: {msg.Text} от {msg.Chat.FirstName} {msg.Chat.LastName}");
-                //await Globals.Client.SendTextMessageAsync(msg.Chat.Id, msg.Text, replyToMessageId: msg.MessageId);
-                /*
-                var stic = await Globals.Client.SendStickerAsync(chatId: msg.Chat.Id, 
-                    sticker: "https://tlgrm.ru/_/stickers/dc7/a36/dc7a3659-1457-4506-9294-0d28f529bb0a/192/17.webp",
-                    replyToMessageId: msg.MessageId);
-                */
-                /*
-                if (msg.Text == "/start")
-                {
-                    await Globals.Client.SendTextMessageAsync(msg.Chat.Id, "Добро пожаловать на канал");
-                }
-                */
-                //await Globals.Client.SendTextMessageAsync(msg.Chat.Id, msg.Text, replyMarkup: GetButtons());
+
+                //MessageBox.Show($"$Пришло сообщение с текстом: { msg.Text} от { msg.Chat.FirstName} { msg.Chat.LastName}");
+
 
                 Globals.Currencylist1 = GetExchangeRates();
-
 
                 switch (msg.Text)
                 {
@@ -100,8 +87,6 @@ namespace Homework_10._5___Telegram_bot_GUI
 
                         await Globals.Client.SendTextMessageAsync(msg.Chat.Id, $"Файл {Globals.Filepath} загружен", replyMarkup: GetButtons());
 
-                        GetHtmlFromJsonFile(Globals.Filepath);
-
                         break;
 
                     default:
@@ -118,7 +103,7 @@ namespace Homework_10._5___Telegram_bot_GUI
                 Keyboard = new List<List<KeyboardButton>>
                 {
                     new List<KeyboardButton>{new KeyboardButton { Text = Globals.menuItem1 }, new KeyboardButton { Text = Globals.menuItem2 } },
-                    new List<KeyboardButton>{new KeyboardButton { Text = Globals.menuItem3 }, new KeyboardButton { Text = Globals.menuItem4 } }
+                    //new List<KeyboardButton>{new KeyboardButton { Text = Globals.menuItem3 }, new KeyboardButton { Text = Globals.menuItem4 } }
                 }
             };
         }

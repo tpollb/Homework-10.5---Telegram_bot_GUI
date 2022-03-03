@@ -13,10 +13,13 @@
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignBodyLight}"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}" Visibility="Hidden" 
+        >
 
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" Click="Button_Click"/>
+        <Button x:Name="StartBotButton" Content="Start bot" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Click="StartBotButton_Click" Margin="389,16,0,0"/>
+        <Button x:Name="StopBotButton" Content="Stop bot" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="Hand" Click="StopBotButtonButton_Click" Margin="389,53,0,0" IsEnabled="False"/>
+        <ListBox x:FieldModifier="public" x:Name="MsgListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Foreground="White" Margin="246,-3,115,3" AutomationProperties.Name="MsgListBox"/>
     </Grid>
-    
+
 </Window>
