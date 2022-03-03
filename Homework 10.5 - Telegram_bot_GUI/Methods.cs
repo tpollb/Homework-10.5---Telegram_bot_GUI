@@ -5,12 +5,10 @@ using Telegram.Bot.Types.ReplyMarkups;
 using System.Threading;
 using Newtonsoft.Json;
 using System.IO;
-using System.Windows;
 using System.Net;
 using System.Xml.Linq;
 using System.Linq;
 using System.Windows.Controls;
-using System.Windows.Threading;
 using System.Threading.Tasks;
 
 namespace Homework_10._5___Telegram_bot_GUI

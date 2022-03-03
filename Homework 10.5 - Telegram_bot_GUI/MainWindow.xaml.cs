@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using Telegram.Bot;
 
 namespace Homework_10._5___Telegram_bot_GUI
