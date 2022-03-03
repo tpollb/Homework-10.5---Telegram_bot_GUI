@@ -31,8 +31,8 @@ namespace Homework_10._5___Telegram_bot_GUI
             string dollar = el.Where(x => x.Attribute("ID").Value == "R01235").Select(x => x.Element("Value").Value).FirstOrDefault();
             string eur = el.Where(x => x.Attribute("ID").Value == "R01239").Select(x => x.Element("Value").Value).FirstOrDefault();
             
-            res.Add(dollar);
-            res.Add(eur);
+            res.Add($"USD: {dollar}");
+            res.Add($"EUR: {eur}");
 
             return res;
         }
